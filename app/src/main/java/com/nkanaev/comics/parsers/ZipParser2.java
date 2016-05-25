@@ -5,15 +5,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-import java.util.List;
 
 import com.nkanaev.comics.managers.Utils;
 
 
-public class ZipParser implements Parser {
+public class ZipParser2 implements Parser {
     private ZipFile mZipFile;
     private ArrayList<ZipEntry> mEntries;
 
@@ -21,7 +22,7 @@ public class ZipParser implements Parser {
     public List<String> parse(File file) throws IOException {
         mZipFile = new ZipFile(file.getAbsolutePath());
         mEntries = new ArrayList<ZipEntry>();
-        List<String> pageList = new ArrayList<String>();
+
         Enumeration<? extends ZipEntry> e = mZipFile.entries();
         while (e.hasMoreElements()) {
             ZipEntry ze = e.nextElement();
@@ -30,13 +31,19 @@ public class ZipParser implements Parser {
             }
         }
 
-        Collections.sort(pageList, PageComparator.COMPARATOR); //Sort the page names
-        return pageList;
+        Collections.sort(mEntries, new Comparator<ZipEntry>() {
+            public int compare(ZipEntry a, ZipEntry b) {
+                return a.getName().compareTo(b.getName());
+            }
+        });
 
 
-
+        return null;
     }
 
+	
+	
+	
     @Override
     public int numPages() {
         return mEntries.size();
@@ -51,8 +58,6 @@ public class ZipParser implements Parser {
     public String getType() {
         return "zip";
     }
-
-
 
     @Override
     public void destroy() throws IOException {

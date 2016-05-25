@@ -9,12 +9,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class DirectoryParser implements Parser {
     private ArrayList<File> mFiles = new ArrayList<>();
 
     @Override
-    public void parse(File dir) throws IOException {
+    public List<String> parse(File dir) throws IOException {
         if (!dir.isDirectory()) {
             throw new IOException("Not a directory: " + dir.getAbsolutePath());
         }
@@ -32,6 +33,7 @@ public class DirectoryParser implements Parser {
         }
 
         Collections.sort(mFiles);
+        return null;
     }
 
     @Override

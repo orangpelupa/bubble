@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import com.github.junrar.Archive;
 import com.github.junrar.exception.RarException;
@@ -18,7 +19,7 @@ public class RarParser implements Parser {
     private boolean mSolidFileExtracted = false;
 
     @Override
-    public void parse(File file) throws IOException {
+    public List<String> parse(File file) throws IOException {
         try {
             mArchive = new Archive(file);
         }
@@ -43,6 +44,7 @@ public class RarParser implements Parser {
                 return getName(a).compareTo(getName(b));
             }
         });
+        return null;
     }
 
     private String getName(FileHeader header) {
