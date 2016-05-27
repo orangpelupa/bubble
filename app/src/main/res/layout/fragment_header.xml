@@ -20,4 +20,22 @@
             android:src="@drawable/ic_launcher"
             android:scaleType="center"
             android:alpha="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView"
+        android:layout_above="@+id/navbar_icon"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy me a drink"
+        android:id="@+id/clickButton"
+        android:onClick="sendMessage"
+        android:layout_below="@+id/navbar_icon"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

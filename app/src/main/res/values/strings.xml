@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bubble</string>
-    <string name="app_description">Android comic reader</string>
+    <string name="app_name">Comic Max</string>
+    <string name="app_description">Android comic viewer</string>
 
     <string name="action_refresh">Refresh</string>
     <string name="action_settings">Settings</string>
@@ -49,4 +49,7 @@
 
     <string name="library_empty">Your collection seems empty. Click \"folder\" icon to select library directory</string>
     <string name="warning_missing_file">Missing file. Please update the library</string>
+    <string name="title_activity_drinks">Drinks</string>
+    <string name="buy_string">Buy Button</string>
+    <string name="click_string">Click Button</string>
 </resources>

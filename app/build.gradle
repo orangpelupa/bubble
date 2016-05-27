@@ -10,7 +10,7 @@ android {
     buildToolsVersion '22.0.1'
 
     defaultConfig {
-        applicationId "com.nkanaev.comics"
+        applicationId "com.bramantya.comicmax"
         minSdkVersion 16
         targetSdkVersion 22
 
