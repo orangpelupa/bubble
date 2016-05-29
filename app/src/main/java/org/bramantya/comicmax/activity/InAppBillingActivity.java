@@ -162,7 +162,7 @@ public class InAppBillingActivity extends Activity {
        /* clickButton.setEnabled(false); */
 
         String base64EncodedPublicKey =
-                "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkSufq2m/21FJDJBLE3x7YJ3b9wf5b4ODs2oOQBDIXp/YMTgRKKEh6VkrUnYdnKET+nA+NogtuVJ8gKgX9pCmSgolphE2iDjFr+xE94b/zmFT4SoustCI4xLxx9j1OEqIrTXbqIiS16um2wiij/z/CZIyBVRMTkWCLoDi4iHtuSNB+580akQKqB1H3inMsyKi/7zakgOvE5qvoU9RmpfrpKfGNb3lZbhlM6KLJhxYX8mWhF3acoIOLgncAFN0BG5wLRFTwlTZKqU68EIoubaVgonBgmc7Z8+lpssztIRkFeFHEfytAHbc2GNFUYmFSxWxWla9AEwz0ohJ3Nqb0U/8owIDAQAB";
+                "RADENMAS";
 
         mHelper = new IabHelper(this, base64EncodedPublicKey);
 
