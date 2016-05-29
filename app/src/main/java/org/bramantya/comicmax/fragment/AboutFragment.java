@@ -31,27 +31,27 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
     }
 
     private LibraryDescription[] mDescriptions = new LibraryDescription[]{
-        new LibraryDescription(
-                "Picasso",
-                "A powerful image downloading and caching library for Android",
-                "Apache Version 2.0",
-                "Square",
-                "https://github.com/square/picasso"
-        ),
-        new LibraryDescription(
-                "Junrar",
-                "Plain java unrar util",
-                "Unrar License",
-                "Edmund Wagner",
-                "https://github.com/edmund-wagner/junrar"
-        ),
-        new LibraryDescription(
-                "Bubble",
-                "The base of this app",
-                "Github",
-                "nkanaev",
-                "https://github.com/nkanaev/bubble"
-        ),
+            new LibraryDescription(
+                    "Picasso",
+                    "A powerful image downloading and caching library for Android",
+                    "Apache Version 2.0",
+                    "Square",
+                    "https://github.com/square/picasso"
+            ),
+            new LibraryDescription(
+                    "Junrar",
+                    "Plain java unrar util",
+                    "Unrar License",
+                    "Edmund Wagner",
+                    "https://github.com/edmund-wagner/junrar"
+            ),
+            new LibraryDescription(
+                    "Bubble",
+                    "The base of this app",
+                    "Github",
+                    "nkanaev",
+                    "https://github.com/nkanaev/bubble"
+            ),
             new LibraryDescription(
                     "opencomicreader",
                     "Filename sorting logic",

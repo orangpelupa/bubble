@@ -3,11 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="org.bramantya.comicmax.activity.InAppBillingActivity">
+
+   <!-- <Button android:id="@+id/btn_fullscreen_ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fullscreen ads"
+        android:layout_below="@+id/clickButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" /> -->
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_home_footer">
+    </com.google.android.gms.ads.AdView>
 
     <View android:id="@+id/strut"
         android:layout_width="0dp"
@@ -44,7 +63,7 @@
 
 
 
-    <ImageButton
+   <!-- <ImageButton
         android:src="@drawable/drinksback"
         android:cropToPadding="true"
         android:adjustViewBounds="true"
@@ -56,10 +75,11 @@
         android:onClick="buttonClicked"
         android:layout_alignWithParentIfMissing="false"
         android:maxHeight="64dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        android:layout_above="@+id/adView"
+        android:layout_alignLeft="@+id/adView"
+        android:layout_alignStart="@+id/adView"
+        android:layout_marginBottom="8dp" /> -->
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,6 +94,30 @@
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/clickButton"
         android:layout_toStartOf="@+id/clickButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Interstitial Ads"
+        android:padding="4dp"
+        android:id="@+id/textView3"
+        android:onClick="buyWater"
+        android:layout_below="@+id/buyWaterButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/buyWaterButtonButton"
+        android:layout_toEndOf="@+id/buyWaterButtonButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Thank you for your patronage!"
+        android:id="@+id/textView"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp" />
     <!--  <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,19 +144,19 @@
         -->
 
 
-<!--
-    <ImageButton
-        android:src="@drawable/drinks1"
-        android:cropToPadding="true"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:padding="0px"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buyBack"
-        android:layout_below="@+id/buyWater"
-        android:layout_alignParentTop="false"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_alignParentBottom="false" />
--->
+    <!--
+        <ImageButton
+            android:src="@drawable/drinks1"
+            android:cropToPadding="true"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:padding="0px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buyBack"
+            android:layout_below="@+id/buyWater"
+            android:layout_alignParentTop="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentBottom="false" />
+    -->
 </RelativeLayout>

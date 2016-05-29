@@ -25,6 +25,10 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.ImageButton;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 /**
  * Created by Shiki on 5/26/2016.
  */
@@ -36,6 +40,9 @@ public class InAppBillingActivity extends Activity {
 
     private ImageButton clickButton;
     private ImageButton buyWaterButton;
+
+    private AdView mAdView;
+    private Button btnFullscreenAd;
 
     public void buyWater(View view) {
         try {
@@ -118,6 +125,11 @@ public class InAppBillingActivity extends Activity {
 
     @Override
     public void onDestroy() {
+
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+
         super.onDestroy();
         if (mHelper != null) try {
             mHelper.dispose();
@@ -131,6 +143,19 @@ public class InAppBillingActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_app_billing);
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mAdView.loadAd(adRequest);
+
+       /* btnFullscreenAd = (Button) findViewById(R.id.btn_fullscreen_ad);
+        btnFullscreenAd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(InAppBillingActivity.this, SecondActivity.class));
+            }
+        }); */
 
         buyWaterButton = (ImageButton)findViewById(R.id.buyWaterButton);
         clickButton = (ImageButton)findViewById(R.id.clickButton);
@@ -159,9 +184,27 @@ public class InAppBillingActivity extends Activity {
     {
        /* clickButton.setEnabled(false); */
         buyWaterButton.setEnabled(true);
-        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent myIntent = new Intent(getApplicationContext(), SecondActivity.class);
         startActivityForResult(myIntent, 0);
 
     }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+
 
 }

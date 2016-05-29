@@ -10,7 +10,7 @@ android {
     buildToolsVersion '22.0.1'
 
     defaultConfig {
-        applicationId "com.bramantya.comicmax"
+        applicationId "org.bramantya.comicmax"
         minSdkVersion 16
         targetSdkVersion 22
 
@@ -43,4 +43,5 @@ dependencies {
     compile 'com.android.support:design:22.2.0'
     compile 'com.github.junrar:junrar:0.7'
     compile 'com.squareup.picasso:picasso:2.5.2'
+	compile 'com.google.android.gms:play-services-ads:8.4.0'
 }

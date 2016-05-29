@@ -6,6 +6,7 @@
         android:layout_height="match_parent"
         android:background="@color/primary">
    <ImageView
+            android:clipChildren="false"
             android:id="@+id/navbar_cover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
