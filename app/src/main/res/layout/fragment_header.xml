@@ -5,37 +5,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primary">
-    <ImageView
+   <ImageView
             android:id="@+id/navbar_cover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="center"
             android:alpha="0"/>
 
+    <!--    <ImageView
+               android:id="@+id/navbar_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerInParent="true"
+               android:src="@drawable/ic_launcher"
+               android:scaleType="center"
+               android:alpha="1"/>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textAppearance="?android:attr/textAppearanceLarge"
+           android:text="Large Text"
+           android:id="@+id/textView"
+           android:layout_above="@+id/navbar_icon"
+           android:layout_centerHorizontal="true" />
+
+             <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Buy me a drink"
+           android:id="@+id/clickButton"
+           android:onClick="sendMessage"
+           android:layout_below="@+id/navbar_icon"
+           android:layout_centerHorizontal="true" />
+   -->
+
     <ImageView
-            android:id="@+id/navbar_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/ic_launcher"
-            android:scaleType="center"
-            android:alpha="1"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView"
-        android:layout_above="@+id/navbar_icon"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buy me a drink"
-        android:id="@+id/clickButton"
+        android:id="@+id/navbar_icon"
         android:onClick="sendMessage"
-        android:layout_below="@+id/navbar_icon"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/drinks0"
+        android:scaleType="center"
+        android:alpha="1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+ />
+
 </RelativeLayout>

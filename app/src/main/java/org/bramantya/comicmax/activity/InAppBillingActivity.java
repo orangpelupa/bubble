@@ -2,6 +2,7 @@ package org.bramantya.comicmax.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.widget.Button;
 
@@ -22,6 +23,7 @@ import android.widget.Button;
 import android.view.View;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.ImageButton;
 
 /**
  * Created by Shiki on 5/26/2016.
@@ -32,10 +34,10 @@ public class InAppBillingActivity extends Activity {
     IabHelper mHelper;
     static final String ITEM_SKU = "android.test.purchased";
 
-    private Button clickButton;
-    private Button buyButton;
+    private ImageButton clickButton;
+    private ImageButton buyWaterButton;
 
-    public void buyClick(View view) {
+    public void buyWater(View view) {
         try {
             mHelper.launchPurchaseFlow(this, ITEM_SKU, 10001,
                     mPurchaseFinishedListener, "mypurchasetoken");
@@ -130,12 +132,12 @@ public class InAppBillingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_app_billing);
 
-        buyButton = (Button)findViewById(R.id.buyButton);
-        clickButton = (Button)findViewById(R.id.clickButton);
+        buyWaterButton = (ImageButton)findViewById(R.id.buyWaterButton);
+        clickButton = (ImageButton)findViewById(R.id.clickButton);
        /* clickButton.setEnabled(false); */
 
         String base64EncodedPublicKey =
-                "RADENMAS";
+                "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkSufq2m/21FJDJBLE3x7YJ3b9wf5b4ODs2oOQBDIXp/YMTgRKKEh6VkrUnYdnKET+nA+NogtuVJ8gKgX9pCmSgolphE2iDjFr+xE94b/zmFT4SoustCI4xLxx9j1OEqIrTXbqIiS16um2wiij/z/CZIyBVRMTkWCLoDi4iHtuSNB+580akQKqB1H3inMsyKi/7zakgOvE5qvoU9RmpfrpKfGNb3lZbhlM6KLJhxYX8mWhF3acoIOLgncAFN0BG5wLRFTwlTZKqU68EIoubaVgonBgmc7Z8+lpssztIRkFeFHEfytAHbc2GNFUYmFSxWxWla9AEwz0ohJ3Nqb0U/8owIDAQAB";
 
         mHelper = new IabHelper(this, base64EncodedPublicKey);
 
@@ -156,7 +158,10 @@ public class InAppBillingActivity extends Activity {
     public void buttonClicked (View view)
     {
        /* clickButton.setEnabled(false); */
-        buyButton.setEnabled(true);
+        buyWaterButton.setEnabled(true);
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+
     }
 
 }
