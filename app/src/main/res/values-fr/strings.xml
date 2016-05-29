@@ -57,4 +57,11 @@
     <string name="warning_missing_file"></string>
     <string name="library_header_all"></string>
     <string name="library_header_recent"></string>
+
+    <string name="title_activity_drinks">Drinks</string>
+    <string name="buy_string">Buy Button</string>
+    <string name="click_string">Click Button</string>
+
+    <string name="banner_home_footer">ca-app-pub-0365989963097136/8341536999</string>
+    <string name="interstitial_full_screen">ca-app-pub-0365989963097136/1464071795</string>
 </resources>

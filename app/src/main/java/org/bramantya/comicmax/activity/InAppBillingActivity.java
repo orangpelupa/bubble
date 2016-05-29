@@ -34,9 +34,9 @@ import com.google.android.gms.ads.AdView;
  */
 public class InAppBillingActivity extends Activity {
 
-    private static final String TAG = "com.example.inappbilling";
+    private static final String TAG = "org.bramantya.comicmax.iap";
     IabHelper mHelper;
-    static final String ITEM_SKU = "android.test.purchased";
+    static final String ITEM_SKU = "org.bramantya.comicmax.drinks1";
 
     private ImageButton clickButton;
     private ImageButton buyWaterButton;

@@ -13,7 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import org.bramantya.comicmax.R;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class AboutFragment extends Fragment implements View.OnClickListener {
+
+    private AdView mAdView;
+
     private class LibraryDescription {
         public final String name;
         public final String description;
@@ -32,6 +39,20 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
 
     private LibraryDescription[] mDescriptions = new LibraryDescription[]{
             new LibraryDescription(
+                    "Bubble",
+                    "The base of this app",
+                    "Github",
+                    "nkanaev",
+                    "https://github.com/nkanaev/bubble"
+            ),
+            new LibraryDescription(
+                    "Max Comic Viewer",
+                    "Open source project",
+                    "Github",
+                    "orangpelupa",
+                    "https://github.com/orangpelupa/bubble"
+            ),
+            new LibraryDescription(
                     "Picasso",
                     "A powerful image downloading and caching library for Android",
                     "Apache Version 2.0",
@@ -44,20 +65,6 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
                     "Unrar License",
                     "Edmund Wagner",
                     "https://github.com/edmund-wagner/junrar"
-            ),
-            new LibraryDescription(
-                    "Bubble",
-                    "The base of this app",
-                    "Github",
-                    "nkanaev",
-                    "https://github.com/nkanaev/bubble"
-            ),
-            new LibraryDescription(
-                    "opencomicreader",
-                    "Filename sorting logic",
-                    "Github",
-                    "sketchpunk",
-                    "https://github.com/sketchpunk/opencomicreader/"
             )
     };
 
@@ -68,6 +75,11 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         LinearLayout libsLayout = (LinearLayout) view.findViewById(R.id.about_libraries);
 
         ((TextView) view.findViewById(R.id.aboutVersion)).setText(getVersionString());
+
+        mAdView = (AdView) view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mAdView.loadAd(adRequest);
 
         for (int i = 0; i < mDescriptions.length; i++) {
             View cardView = inflater.inflate(R.layout.card_deps, libsLayout, false);

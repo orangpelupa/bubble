@@ -49,15 +49,6 @@
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.Drinks"
-            android:label="@string/title_activity_drinks"
-            android:parentActivityName=".activity.MainActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.bramantya.comicmax.activity.MainActivity" />
-        </activity>
         <activity android:name=".activity.InAppBillingActivity" />
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
