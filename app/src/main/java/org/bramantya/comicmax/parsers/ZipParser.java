@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -21,7 +23,7 @@ public class ZipParser implements Parser {
     public List<String> parse(File file) throws IOException {
         mZipFile = new ZipFile(file.getAbsolutePath());
         mEntries = new ArrayList<ZipEntry>();
-        List<String> pageList = new ArrayList<String>();
+
         Enumeration<? extends ZipEntry> e = mZipFile.entries();
         while (e.hasMoreElements()) {
             ZipEntry ze = e.nextElement();
@@ -30,11 +32,15 @@ public class ZipParser implements Parser {
             }
         }
 
-        Collections.sort(pageList, PageComparator.COMPARATOR); //Sort pages w OpenComicReader system
-        return pageList;
+        Collections.sort(mEntries, new Comparator<ZipEntry>() {
+            public int compare(ZipEntry a, ZipEntry b) {
+                return String.format("%100s", a.getName()).compareTo(
+                        String.format("%100s", b.getName()));
+            }
+        });
 
 
-
+        return null;
     }
 
     @Override

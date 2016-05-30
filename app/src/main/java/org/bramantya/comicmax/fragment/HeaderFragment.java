@@ -44,10 +44,10 @@ public class HeaderFragment extends Fragment
         mPicasso = ((MainActivity) getActivity()).getPicasso();
         mIconImageView = (ImageView) view.findViewById(org.bramantya.comicmax.R.id.navbar_icon);
         mCoverImageView = (ImageView) view.findViewById(org.bramantya.comicmax.R.id.navbar_cover);
-        if (savedInstanceState == null)
+     /*   if (savedInstanceState == null)
             mCoverImageView.addOnLayoutChangeListener(this);
         else
-            if (mDrawable != null) showDrawable(mDrawable);
+            if (mDrawable != null) showDrawable(mDrawable); */
 
         return view;
     }

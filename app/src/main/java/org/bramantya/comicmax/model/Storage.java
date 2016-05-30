@@ -19,6 +19,7 @@ public class Storage {
         public static final String COLUMN_NAME_ID = "id";
         public static final String COLUMN_NAME_FILEPATH = "path";
         public static final String COLUMN_NAME_FILENAME = "name";
+        public static final String COLUMN_NAME_FILENAMEX = "namex";
         public static final String COLUMN_NAME_NUM_PAGES = "num_pages";
         public static final String COLUMN_NAME_CURRENT_PAGE = "cur_page";
         public static final String COLUMN_NAME_TYPE = "type";
@@ -28,6 +29,7 @@ public class Storage {
                 Book.COLUMN_NAME_ID,
                 Book.COLUMN_NAME_FILEPATH,
                 Book.COLUMN_NAME_FILENAME,
+                Book.COLUMN_NAME_FILENAMEX,
                 Book.COLUMN_NAME_NUM_PAGES,
                 Book.COLUMN_NAME_CURRENT_PAGE,
                 Book.COLUMN_NAME_TYPE,
@@ -49,6 +51,7 @@ public class Storage {
                     + Book.COLUMN_NAME_ID + " INTEGER PRIMARY KEY,"
                     + Book.COLUMN_NAME_FILEPATH + " TEXT,"
                     + Book.COLUMN_NAME_FILENAME + " TEXT,"
+                    + Book.COLUMN_NAME_FILENAMEX + " TEXT,"
                     + Book.COLUMN_NAME_NUM_PAGES + " INTEGER,"
                     + Book.COLUMN_NAME_CURRENT_PAGE + " INTEGER DEFAULT 0,"
                     + Book.COLUMN_NAME_TYPE + " TEXT,"
@@ -68,7 +71,7 @@ public class Storage {
     private ComicDbHelper mDbHelper;
     private static Storage mSharedInstance;
 
-    private static final String SORT_ORDER = "lower(" + Book.COLUMN_NAME_FILEPATH + "|| '/' || " + Book.COLUMN_NAME_FILENAME + ") ASC";
+    private static final String SORT_ORDER = "lower(" + Book.COLUMN_NAME_FILEPATH + "|| '/' || " + Book.COLUMN_NAME_FILENAMEX + ") ASC";
 
     private Storage(Context context) {
         mDbHelper = new ComicDbHelper(context);
@@ -94,6 +97,7 @@ public class Storage {
         ContentValues cv = new ContentValues();
         cv.put(Book.COLUMN_NAME_FILEPATH, filepath.getParentFile().getAbsolutePath());
         cv.put(Book.COLUMN_NAME_FILENAME, filepath.getName());
+        cv.put(Book.COLUMN_NAME_FILENAMEX, String.format("%100s", filepath.getName()));
         cv.put(Book.COLUMN_NAME_NUM_PAGES, numPages);
         cv.put(Book.COLUMN_NAME_TYPE, type);
 
